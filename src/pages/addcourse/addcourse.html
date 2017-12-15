@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Add Course</ion-title>
+	<ion-buttons end>
+	    <button ion-button text="Save">
+			Save
+		</button>
+	</ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+     <ion-grid>
+	    <ion-row>
+		  <ion-item col-6>
+		    Course Name
+          </ion-item> 		
+		  <ion-item col-6>
+		     <ion-select >
+			      <ion-option>Workshop</ion-option>
+                  <ion-option>Salesforce Admin</ion-option>
+                  <ion-option>Salesforce Developer</ion-option>
+                  <ion-option>ServiceNow Admin</ion-option>  				  
+             </ion-select>
+	      </ion-item>		  			 
+        </ion-row>
+     
+	    <ion-row>
+		    <ion-item col-6>
+			   Start Date
+			</ion-item>    
+            <ion-item col-6>
+               <ion-input type="date" displayFormat="DD/MM/YYYY"></ion-input>
+            </ion-item>
+        </ion-row> 
+			
+		<ion-row>
+		    <ion-item col-6>
+			   Location
+			</ion-item>    
+            <ion-item col-6>
+               <ion-input type="string"></ion-input>
+			                              
+            </ion-item>
+        </ion-row> 	
+	       
+	    <ion-row>
+		    <ion-item col-6>
+			   Course Fee
+			</ion-item>    
+            <ion-item col-6>
+               <ion-input type="number"></ion-input>
+            </ion-item>
+        </ion-row>
+		
+		<ion-row>
+		    <ion-item col-6>
+			   Duration in Hrs
+			</ion-item>    
+            <ion-item col-6>
+               <ion-input type="number"></ion-input>
+            </ion-item>
+        </ion-row>
+	 
+	 </ion-grid>		
+</ion-content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+    
