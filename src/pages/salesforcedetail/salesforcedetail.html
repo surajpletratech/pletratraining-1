@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Course Detail</ion-title>
+	<ion-buttons end>
+		<button ion-button text="Register" (click)="paymentDetail()">
+			Register
+		</button>
+	</ion-buttons>	
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+   
+   <ion-grid>
+      <ion-row>
+	      <ion-item col-6>Course Name</ion-item>
+		  <ion-item col-6>
+		       {{salesforceCourse.CourseName}}
+		  </ion-item> 	   
+	  </ion-row>
+      
+      <ion-row>
+	      <ion-item col-6>Start date</ion-item>
+		  <ion-item col-6>
+		       {{salesforceCourse.StartDate}}
+		  </ion-item> 	   
+	  </ion-row>
+      
+      
+      <ion-row>
+	      <ion-item col-6>Location</ion-item>
+		  <ion-item col-6>
+		       {{salesforceCourse.Location}}
+		  </ion-item> 	   
+	  </ion-row>
+      
+      <ion-row>
+	      <ion-item col-6>instructor</ion-item>
+		  <ion-item col-6>
+		       {{salesforceCourse.Instructor}}
+		  </ion-item> 	   
+	  </ion-row>
+      
+      
+      <ion-row>
+	      <ion-item col-6>Course Fee</ion-item>
+		  <ion-item col-6>
+		       {{salesforceCourse.Fee}}
+		  </ion-item> 	   
+	  </ion-row>
+      
+      	  
+	 <ion-row>
+	      <ion-item col-6>Course Detail</ion-item>
+		  <ion-item col-6>
+		       
+		  </ion-item> 	   
+	  </ion-row>
+      
+  </ion-grid>
+     
+          	  
+</ion-content>
