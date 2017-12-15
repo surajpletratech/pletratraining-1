@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Workshop Detail</ion-title>
+	<ion-buttons end>
+		<button ion-button text="Register" clear small (click)="paymentDetail()">
+			Register
+		</button>
+	</ion-buttons>	
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+   <ion-grid>
+      <ion-row>
+	      <ion-item col-6>Course Name</ion-item>
+		  <ion-item col-6>
+		       {{workshop.CourseName}}
+		  </ion-item> 	   
+	  </ion-row>
+      
+      <ion-row>
+	      <ion-item col-6>Start date</ion-item>
+		  <ion-item col-6>
+		       {{workshop.StartDate}}
+		  </ion-item> 	   
+	  </ion-row>
+      
+      
+      <ion-row>
+	      <ion-item col-6>Location</ion-item>
+		  <ion-item col-6>
+		       {{workshop.Location}}
+		  </ion-item> 	   
+	  </ion-row>
+      
+      <ion-row>
+	      <ion-item col-6>instructor</ion-item>
+		  <ion-item col-6>
+		       {{workshop.Instructor}}
+		  </ion-item> 	   
+	  </ion-row>
+      
+      
+      <ion-row>
+	      <ion-item col-6>Course Fee</ion-item>
+		  <ion-item col-6>
+		       {{workshop.Fee}}
+		  </ion-item> 	   
+	  </ion-row>
+      
+      	  
+	 <ion-row>
+	      <ion-item col-6>Course Detail</ion-item>
+		  <ion-item col-6>
+		       
+		  </ion-item> 	   
+	  </ion-row>
+      
+  </ion-grid>   
+</ion-content>

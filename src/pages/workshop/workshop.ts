@@ -6,9 +6,10 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'workshop.html'
 })
 export class WorkshopPage {
-   
+    
     constructor(public navCtrl: NavController, public navParams: NavParams)
       	{
-                           
+                        
     	}
+		
 }
