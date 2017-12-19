@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the PaymentPage page.
+ * Generated class for the WorkshopDetailPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,16 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-payment',
-  templateUrl: 'payment.html',
+  selector: 'page-workshop-detail',
+  templateUrl: 'workshop-detail.html',
 })
-export class PaymentPage {
+export class WorkshopDetailPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PaymentPage');
+    console.log('ionViewDidLoad WorkshopDetailPage');
   }
 
 }

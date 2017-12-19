@@ -3,57 +3,58 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import firebase, { Unsubscribe } from 'firebase';
+import { firebaseConfig } from './credentials';
 import { HomePage } from '../pages/home/home';
-//import { ListPage } from '../pages/list/list';
-import { SalesforcePage } from '../pages/salesforce/salesforce';
-import { ServicenowPage } from '../pages/servicenow/servicenow';
-import { WorkshopPage } from '../pages/workshop/workshop';
-import { SignupPage } from '../pages/signup/signup';
 import { ProfilePage } from '../pages/profile/profile';
-import { SignoutPage } from '../pages/signout/signout';
-import { SettingPage } from '../pages/setting/setting';
-import { ServicenowDetail } from '../pages/servicenowdetail/servicenowdetail';
+import { SettingsPage } from '../pages/settings/settings';
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  @ViewChild(Nav) nav: Nav;
+    @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;	
+    rootPage: any;
+    pages: Array<{ title: string, component: any }>;
 
-  pages: Array<{title: string, component: any}>;
+  constructor(platform: Platform,
+      statusBar: StatusBar,
+      splashScreen: SplashScreen) {
+      firebase.initializeApp(firebaseConfig);
+      const unsubscribe: Unsubscribe = firebase
+          .auth()
+          .onAuthStateChanged(user => {
+              if (!user) {
+                  this.rootPage = 'LoginPage';
+                  unsubscribe();
+              } else {
+                  this.rootPage = HomePage;
+                  unsubscribe();
+              }
+          });
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
-    this.initializeApp();
+      this.pages = [
+          { title: 'Home', component: HomePage },
+          { title: 'Salesforce Workshop', component: HomePage },
+          { title: 'Salesforce Admin', component: HomePage },
+          { title: 'Salesforce Developer', component: HomePage },
+          { title: 'Profile', component: 'ProfilePage' },
+          { title: 'Settings', component: 'SettingsPage' }
+      ];
 
-    // used for an example of ngFor and navigation
-    this.pages = [
-      { title: 'Home', component: HomePage },
-	 // { title: 'Sign up', component:SignupPage },
-    //  { title: 'List', component: ListPage },
-	  { title: 'Salesforce', component: SalesforcePage },
-	  { title: 'ServiceNow', component: ServicenowPage },
-	  { title: 'Workshop', component:WorkshopPage },
-	  { title : 'Profile', component:ProfilePage},
-	  { title :'Setting', component:SettingPage },
-	  { title : 'Sign out', component:SignoutPage},
-	  
-    ];
-
-  }
-
-  initializeApp() {
-    this.platform.ready().then(() => {
+      platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
+      statusBar.styleDefault();
+      splashScreen.hide();
+      
     });
   }
 
   openPage(page) {
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+      // Reset the content nav to have just this page
+      // we wouldn't want the back button to show in this scenario
+      this.nav.setRoot(page.component);
   }
 }
+

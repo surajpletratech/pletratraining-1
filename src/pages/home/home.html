@@ -3,87 +3,26 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
-	<ion-buttons end>
-		<button ion-button (click)="addCourse()">
-			<ion-icon name="add"></ion-icon>
-		</button>
-	</ion-buttons>
+    <ion-title>
+      Pletra training
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="addTraining()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>	
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <div>
-   <ion-list>
-   
-   <!--<ion-label>Salesforce Admin</ion-label>-->
-      <ion-item-group>
-	   <ion-item-divider color="light">Salesforce Admin</ion-item-divider>
-   		<button ion-item (click)="listItemClick('salesforce')"> 
-          <ion-row>
-            <ion-col><ion-icon name="cloud"></ion-icon></ion-col>
-            <ion-col>{{course.StartDate}}</ion-col>
-            <ion-col>online</ion-col>
-			<ion-col>{{course.Duration}}hrs</ion-col>
-          </ion-row>
-        </button>
-		<button ion-item (click)="listItemClick('salesforce')"> 
-          <ion-row>
-            <ion-col><ion-icon name="cloud"></ion-icon></ion-col>
-            <ion-col>{{course.StartDate}}</ion-col>
-            <ion-col>online</ion-col>
-			<ion-col>{{course.Duration}}hrs</ion-col>
-          </ion-row>
-        </button>
-	   </ion-item-group>	
-      </ion-list>
-       
-	  <ion-list>
-      <!--<ion-label>Salesforce Admin</ion-label>-->
-      <ion-item-group>
-	   <ion-item-divider color="light">Salesforce Developer</ion-item-divider>
-   		<button ion-item (click)="listItemClick('salesforce')"> 
-          <ion-row>
-            <ion-col><ion-icon name="cloud"></ion-icon></ion-col>
-            <ion-col>{{course.StartDate}}</ion-col>
-            <ion-col>online</ion-col>
-			<ion-col>{{course.Duration}}hrs</ion-col>
-          </ion-row>
-        </button>
-		<button ion-item (click)="listItemClick('salesforce')"> 
-          <ion-row>
-            <ion-col><ion-icon name="cloud"></ion-icon></ion-col>
-            <ion-col>{{course.StartDate}}</ion-col>
-            <ion-col>online</ion-col>
-			<ion-col>{{course.Duration}}hrs</ion-col>
-          </ion-row>
-        </button>
-	   </ion-item-group>	
-      </ion-list>
-	  
-   	   <ion-list>
-      <!--<ion-label>Salesforce Admin</ion-label>-->
-      <ion-item-group>
-	   <ion-item-divider color="light">Workshop</ion-item-divider>
-   		<button ion-item (click)="listItemClick('workshop')"> 
-          <ion-row>
-          <!--  <ion-col><ion-icon name="cloud"></ion-icon></ion-col> -->
-            <ion-col>{{workshop.StartDate}}</ion-col>
-            <ion-col>{{workshop.Location}}</ion-col>
-			<ion-col>{{workshop.Duration}}hrs</ion-col>
-          </ion-row>
-        </button>
-		<button ion-item (click)="listItemClick('workshop')"> 
-          <ion-row>
-          <!--<ion-col><ion-icon name="cloud"></ion-icon></ion-col> -->
-            <ion-col>{{workshop.StartDate}}</ion-col>
-            <ion-col>{{workshop.Location}}</ion-col>
-			<ion-col>{{workshop.Duration}}hrs</ion-col>
-          </ion-row>
-        </button>
-	   </ion-item-group>	
-      </ion-list>
-    
-     
-  </div>
+  <h2>Salesforce workshop</h2>
+  <ion-list>
+
+    <ion-item *ngFor="let workshop of workshopData" (click)="goToDetail(workshop.id)">
+      <p>Date: <strong>{{workshop.startDate}}</strong></p>
+      <p>Cost: {{workshop.cost}}</p>
+      <p>Location: {{workshop.location}}</p>
+	  <p>Course: {{workshop.course}}</p>
+    </ion-item>
+  </ion-list>
 </ion-content>

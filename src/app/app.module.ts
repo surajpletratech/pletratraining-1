@@ -1,65 +1,43 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-//import { ListPage } from '../pages/list/list';
-import { SalesforcePage } from '../pages/salesforce/salesforce';
-import { ServicenowPage } from '../pages/servicenow/servicenow'; 
-import { SaleforceDetail } from '../pages/salesforcedetail/salesforcedetail';
-import { PaymentPage } from '../pages/payment/payment';
-import { WorkshopPage } from '../pages/workshop/workshop'; 
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { SignupPage } from '../pages/signup/signup';
-import { ProfilePage } from '../pages/profile/profile';
-import { SignoutPage } from '../pages/signout/signout';
-import { SettingPage } from '../pages/setting/setting';
-import { ServicenowDetail } from '../pages/servicenowdetail/servicenowdetail';
-import { WorkshopDetail } from '../pages/workshopdetail/workshopdetail';
+import { AddTrainingPage } from '../pages/add-training/add-training';
+import { AuthProvider } from '../providers/auth/auth';
+import { ProfileProvider } from '../providers/profile/profile';
+import { CourseProvider } from '../providers/course/course';
+import { WorkshopProvider } from '../providers/workshop/workshop';
+import { PaymentProvider } from '../providers/payment/payment';
+
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    //ListPage,
-	SalesforcePage,
-	ServicenowPage,
-	WorkshopPage,
-	SaleforceDetail,
-	PaymentPage,
-	SignupPage,
-	ProfilePage,
-	SignoutPage,
-	SettingPage,
-	ServicenowDetail,
-	WorkshopDetail,
+      HomePage,
+      AddTrainingPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
-  //  ListPage,
-	SalesforcePage,
-	ServicenowPage,
-	WorkshopPage,
-	SaleforceDetail,
-	PaymentPage,
-	SignupPage,
-	ProfilePage,
-	SignoutPage,
-	SettingPage,
-	ServicenowDetail,
-	WorkshopDetail,
+      HomePage,
+      AddTrainingPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthProvider,
+    ProfileProvider,
+    CourseProvider,
+    WorkshopProvider,
+    PaymentProvider
   ]
 })
 export class AppModule {}
