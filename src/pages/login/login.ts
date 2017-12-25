@@ -24,8 +24,7 @@ export class LoginPage {
         public loadingCtrl: LoadingController,
         public alertCtrl: AlertController,
         public authProvider: AuthProvider,
-        formBuilder: FormBuilder
-    ) {
+        formBuilder: FormBuilder    ) {
         this.loginForm = formBuilder.group({
             email: [
                 '',
@@ -45,7 +44,7 @@ export class LoginPage {
         this.navCtrl.push('ResetPasswordPage');
     }
 
-    loginUser(): void { 
+    loginUser(): void {
         if (!this.loginForm.valid) {
             console.log(
                 `Form is not valid yet, current value: ${this.loginForm.value}`
