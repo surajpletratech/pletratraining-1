@@ -1,0 +1,44 @@
+<!--
+  Generated template for the TrainingDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Training Detail</ion-title>
+    <ion-buttons end>
+      <img src="assets/imgs/ptLogo.jpg" width=100>
+  </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="bg-style">
+  <ion-list bgcolor="bg-style">
+    <ion-list-header><h2>{{currentEvent?.eventType}}</h2></ion-list-header>
+    <ion-item class="item-md">
+      <ion-label>Date : </ion-label>
+      <ion-label>{{currentEvent?.startDate}}</ion-label>
+    </ion-item>
+    <ion-item class="item-md">
+      <ion-label>Location : </ion-label>
+      <ion-label>{{currentEvent?.location}}</ion-label>
+    </ion-item>
+    <ion-item class="item-md">
+      <ion-label>Cost : </ion-label>
+      <ion-label>{{currentEvent?.cost}}</ion-label>
+    </ion-item>
+	<ion-item *ngIf="currentEvent?.status != null">
+      <ion-label>Status: </ion-label>
+      <ion-label>{{currentEvent?.status}}</ion-label>
+    </ion-item>
+    <button ion-button block
+            (click)="register()"
+            *ngIf="currentEvent?.status == null">
+      Register
+    </button>
+  </ion-list>
+</ion-content>

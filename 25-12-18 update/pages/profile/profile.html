@@ -1,0 +1,101 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Profile</ion-title>
+    <ion-buttons end>
+            <img src="assets/imgs/ptLogo.jpg" width=100>
+      <button ion-button icon-only (click)="logOut()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="bg-style">
+  <ion-list>
+    
+      <h3>
+      Personal Information
+      </h3>
+    
+    <ion-item (click)="updateName()" class="item-md">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6> Name </ion-col>
+          <ion-col col-6 *ngIf="userProfile?.firstName || userProfile?.lastName">
+            {{userProfile?.firstName}} {{userProfile?.lastName}}
+          </ion-col>
+          <ion-col col-6 class="placeholder-profile" *ngIf="!userProfile?.firstName">
+            <span> Tap here to edit. </span>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    <ion-item class="item-md">
+      <ion-label class="dob-label">Date of Birth</ion-label>
+      <ion-datetime displayFormat="MMM D, YYYY" pickerFormat="D MMM YYYY" [(ngModel)]="birthDate" (ionChange)="updateDOB(birthDate)"></ion-datetime>
+    </ion-item>
+    <ion-item class="item-md">
+          <ion-label class="dob-label"> Mobile# </ion-label>
+            <ion-input [(ngModel)]="mobileNumber" type="tel" (ionChange)="updateMobile(mobileNumber)"></ion-input>   
+    </ion-item>
+    <ion-item (click)="updateEmail()" class="item-md">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6> Email </ion-col>
+          <ion-col col-6 *ngIf="userProfile?.email">
+            {{userProfile?.email}}
+          </ion-col>
+          <ion-col col-6 class="placeholder-profile" *ngIf="!userProfile?.email">
+            <span> Tap here to edit. </span>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    <ion-item (click)="updatePassword()" class="item-md">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6> Password </ion-col>
+          <ion-col col-6 class="placeholder-profile">
+            <span> Tap here to edit. </span>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-list>
+  <ion-list  *ngIf="registeredEvents?.length > 0">
+    <h3>Registered events</h3>
+    <ion-item *ngFor="let event of registeredEvents" class="item-md">
+      <ion-grid>
+        <ion-row>
+          <ion-col>{{event.eventType}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>Date: {{event.date}}</ion-col>
+          <ion-col>Location: {{event.location}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>Status: {{event.status}}</ion-col>
+          <ion-col>
+            <button ion-button clear *ngIf="event.status=='Awaiting'" (click)="unRegister(event.eventId)">UnRegister</button>
+          </ion-col>
+        </ion-row>
+        </ion-grid>
+    </ion-item>
+  </ion-list>
+  <button ion-button clear
+          (click)="goToHome()">
+    Home
+  </button>
+</ion-content>
